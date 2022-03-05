@@ -22,4 +22,11 @@ router.put(
 // Destroy a specific resource
 router.delete("/:albumId", albumController.destroy);
 
+// Assign  a photo to an album
+router.post(
+	"/:albumId/photos",
+	albumValidationRules.assignPhotoToAlbumRules,
+	albumController.assignPhoto
+);
+
 module.exports = router;
