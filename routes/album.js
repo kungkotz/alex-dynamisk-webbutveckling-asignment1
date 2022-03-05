@@ -1,38 +1,25 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const albumController = require('../controllers/album_Controller');
-const exampleValidationRules = require('../validation/example');
-
-/* 
-// Get all resources
-router.get('/', exampleController.index);
-
-// Get a specific resource
-router.get('/:exampleId', exampleController.show);
-
-// Store a new resource
-router.post('/', exampleValidationRules.createRules, exampleController.store);
-
-// Update a specific resource
-router.put('/:exampleId', exampleValidationRules.updateRules, exampleController.update);
-
-// Destroy a specific resource
-router.delete('/:exampleId', exampleController.destroy);
-*/
+const albumController = require("../controllers/album_Controller");
+const albumValidationRules = require("../validation/album");
 
 // Get all resources
-router.get('/', albumController.index);
+router.get("/", albumController.index);
 
 // Get a specific resource
-router.get('/:albumId', albumController.show);
+router.get("/:albumId", albumController.show);
 
 // Store a new resource
-router.post('/', albumController.store);
+router.post("/", albumValidationRules.createRules, albumController.store);
 
 // Update a specific resource
-router.put('/:albumId', albumController.update);
+router.put(
+	"/:albumId",
+	albumValidationRules.updateRules,
+	albumController.update
+);
 
 // Destroy a specific resource
-router.delete('/:albumId', albumController.destroy);
+router.delete("/:albumId", albumController.destroy);
 
 module.exports = router;

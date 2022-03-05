@@ -1,7 +1,6 @@
 /**
  * User Controller
  */
-
 const debug = require("debug")("users:user_controller");
 const { matchedData, validationResult } = require("express-validator");
 const models = require("../models");
@@ -35,10 +34,10 @@ const store = async (req, res) => {
 	}
 
 	// get only the validated data from the request
-	// const validData = matchedData(req);
+	const validData = matchedData(req);
 
 	try {
-		const user = await new models.User(req.body).save();
+		const user = await new models.User(validData).save();
 		debug("Created new user successfully: %O", user);
 
 		res.send({

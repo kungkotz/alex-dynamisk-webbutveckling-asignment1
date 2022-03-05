@@ -1,7 +1,6 @@
 /**
  * Photo Controller
  */
-
 const debug = require("debug")("photos:photo_controller");
 const { matchedData, validationResult } = require("express-validator");
 const models = require("../models");
@@ -18,7 +17,7 @@ const index = async (req, res) => {
 // Get a specific photo based on photoId with a GET request
 const show = async (req, res) => {
 	const photo = await new models.Photo({ id: req.params.photoId }).fetch({
-		withRelated: ["photos", "user"],
+		withRelated: ["albums", "user"],
 	});
 	res.send({
 		status: "success",
@@ -26,7 +25,7 @@ const show = async (req, res) => {
 	});
 };
 
-// Store a new Album with a POST request
+// Store a new photo with a POST request
 const store = async (req, res) => {
 	// Check for any validation errors
 	const errors = validationResult(req);
@@ -35,38 +34,38 @@ const store = async (req, res) => {
 	}
 
 	// get only the validated data from the request
-	// const validData = matchedData(req);
+	const validData = matchedData(req);
 
 	try {
-		const album = await new models.Album(req.body).save();
-		debug("Created new album successfully: %O", album);
+		const photo = await new models.Photo(validData).save();
+		debug("Created new photo successfully: %O", photo);
 
 		res.send({
 			status: "success",
-			data: { album },
+			data: { photo },
 		});
 	} catch (error) {
 		res.status(500).send({
 			status: "error",
-			message: "Exception thrown in database when creating a new album.",
+			message: "Exception thrown in database when creating a new photo.",
 		});
 		throw error;
 	}
 };
 
-// Update a specific album with a PUT request
+// Update a specific photo with a PUT request
 const update = async (req, res) => {
-	const albumId = req.params.albumId;
+	const photoId = req.params.photoId;
 
-	// make sure album exists
-	const album = await new models.Album({ id: albumId }).fetch({
+	// make sure photo exists
+	const photo = await new models.Photo({ id: photoId }).fetch({
 		require: false,
 	});
-	if (!album) {
-		debug("Album to update was not found. %o", { id: albumId });
+	if (!photo) {
+		debug("photo to update was not found. %o", { id: photoId });
 		res.status(404).send({
 			status: "fail",
-			data: "Album Not Found",
+			data: "photo Not Found",
 		});
 		return;
 	}
@@ -81,16 +80,16 @@ const update = async (req, res) => {
 	const validData = matchedData(req);
 
 	try {
-		const updatedAlbum = await album.save(validData);
-		debug("Updated album successfully: %O", updatedAlbum);
+		const updatedphoto = await photo.save(validData);
+		debug("Updated photo successfully: %O", updatedphoto);
 		res.send({
 			status: "success",
-			data: { album },
+			data: { photo },
 		});
 	} catch (error) {
 		res.status(500).send({
 			status: "error",
-			message: "Exception thrown in database when updating a new album.",
+			message: "Exception thrown in database when updating a new photo.",
 		});
 		throw error;
 	}
