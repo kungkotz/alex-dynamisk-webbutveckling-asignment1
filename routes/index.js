@@ -9,9 +9,8 @@ router.get("/", (req, res, next) => {
 	res.send({ success: true, data: { msg: "oh, hi" } });
 });
 
-router.use("/albums", require("./album"));
-router.use("/photos", require("./photo"));
-router.use("/users", require("./user"));
+router.use("/albums", auth.basic, require("./album"));
+router.use("/photos", auth.basic, require("./photo"));
 
 // Register a user
 router.post(
@@ -19,4 +18,6 @@ router.post(
 	userValidationRules.createRules,
 	authController.register
 );
+
+router.post("/login", auth.basic, authController.login);
 module.exports = router;

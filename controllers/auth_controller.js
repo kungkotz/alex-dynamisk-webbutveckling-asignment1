@@ -1,5 +1,4 @@
 const bcrypt = require("bcrypt");
-const debug = require("debug")("media:auth_controller");
 const { matchedData, validationResult } = require("express-validator");
 const models = require("../models");
 
@@ -24,15 +23,15 @@ const register = async (req, res) => {
 	}
 
 	try {
+		// Even if we never use "user", we still have to save the valid data somewhere
 		const user = await new models.User(validData).save();
-		debug("Created new user successfully: %O", user);
 
 		res.send({
 			status: "success",
 			data: {
 				email: validData.email,
 				first_name: validData.first_name,
-				email: validData.last_name,
+				last_name: validData.last_name,
 			},
 		});
 	} catch (error) {
@@ -44,7 +43,26 @@ const register = async (req, res) => {
 		throw error;
 	}
 };
+const login = async (req, res) => {
+	// logging in the user, if user doesnt exists, send error 401
+	const user = await models.User.login(req.body.email, req.body.password);
+	if (!user) {
+		return res.status(401).send({
+			status: "fail",
+			data: "Authentication failed.",
+		});
+	}
+
+	// response
+	return res.send({
+		status: "success",
+		data: {
+			user,
+		},
+	});
+};
 
 module.exports = {
 	register,
+	login,
 };

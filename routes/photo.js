@@ -4,10 +4,10 @@ const photoController = require("../controllers/photo_controller");
 const photoValidationRules = require("../validation/photo");
 
 // Get all resources
-router.get("/", photoController.index);
+router.get("/", photoController.getAllPhotosFromUser);
 
 //  Get a specific resource
-router.get("/:photoId", photoController.show);
+router.get("/:photoId", photoController.getPhotoFromUser);
 
 //  Store a new resource
 router.post("/", photoValidationRules.createRules, photoController.store);

@@ -4,10 +4,10 @@ const albumController = require("../controllers/album_Controller");
 const albumValidationRules = require("../validation/album");
 
 // Get all resources
-router.get("/", albumController.index);
+router.get("/", albumController.getAllAlbumsFromUser);
 
 // Get a specific resource
-router.get("/:albumId", albumController.show);
+router.get("/:albumId", albumController.getAlbumFromUser);
 
 // Store a new resource
 router.post("/", albumValidationRules.createRules, albumController.store);
@@ -18,9 +18,6 @@ router.put(
 	albumValidationRules.updateRules,
 	albumController.update
 );
-
-// Destroy a specific resource
-router.delete("/:albumId", albumController.destroy);
 
 // Assign  a photo to an album
 router.post(
