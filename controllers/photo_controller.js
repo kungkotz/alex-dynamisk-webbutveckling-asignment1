@@ -1,27 +1,47 @@
 /**
  * Photo Controller
  */
+
 const debug = require("debug")("photos:photo_controller");
 const { matchedData, validationResult } = require("express-validator");
+const { User } = require("../models");
 const models = require("../models");
 
 // Get all photos with a GET request
-const index = async (req, res) => {
-	const allPhotos = await models.Photo.fetchAll();
+const getAllPhotosFromUser = async (req, res) => {
+	const user = await User.fetchById(req.user.id, {
+		withRelated: ["photos"],
+	});
 	res.send({
 		status: "success",
-		data: { allPhotos },
+		data: {
+			photos: user.related("photos"),
+		},
 	});
 };
 
 // Get a specific photo based on photoId with a GET request
-const show = async (req, res) => {
-	const photo = await new models.Photo({ id: req.params.photoId }).fetch({
-		withRelated: ["albums", "user"],
+const getPhotoFromUser = async (req, res) => {
+	const user = await models.User.fetchById(req.user.id, {
+		withRelated: ["photos"],
+	});
+	const userPhotos = user.related("photos");
+	const requestedPhoto = userPhotos.find(
+		(photo) => photo.id == req.params.photoId
+	);
+
+	if (!requestedPhoto) {
+		return res.status(404).send({
+			status: "fail",
+			message: "Requested photo could not be found.",
+		});
+	}
+	const photoId = await models.Photo.fetchById(req.params.photoId, {
+		withRelated: ["albums"],
 	});
 	res.send({
 		status: "success",
-		data: { photo },
+		data: { photoId },
 	});
 };
 
@@ -35,6 +55,7 @@ const store = async (req, res) => {
 
 	// get only the validated data from the request
 	const validData = matchedData(req);
+	validData.user_id = req.user.id;
 
 	try {
 		const photo = await new models.Photo(validData).save();
@@ -80,8 +101,8 @@ const update = async (req, res) => {
 	const validData = matchedData(req);
 
 	try {
-		const updatedphoto = await photo.save(validData);
-		debug("Updated photo successfully: %O", updatedphoto);
+		const updatedPhoto = await photo.save(validData);
+		debug("Updated photo successfully: %O", updatedPhoto);
 		res.send({
 			status: "success",
 			data: { photo },
@@ -99,18 +120,10 @@ const update = async (req, res) => {
  *
  * DELETE /:exampleId
  */
-const destroy = (req, res) => {
-	res.status(400).send({
-		status: "fail",
-		message:
-			"You need to write the code for deleting this resource yourself.",
-	});
-};
 
 module.exports = {
-	index,
-	show,
+	getAllPhotosFromUser,
+	getPhotoFromUser,
 	store,
 	update,
-	destroy,
 };

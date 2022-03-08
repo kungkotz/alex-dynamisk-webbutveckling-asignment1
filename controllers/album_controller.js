@@ -1,28 +1,48 @@
 /**
  * Album Controller
  */
-
 const debug = require("debug")("albums:album_controller");
 const { matchedData, validationResult } = require("express-validator");
+const { User } = require("../models");
 const models = require("../models");
 
-// Get all albums with a GET request
-const index = async (req, res) => {
-	const allAlbums = await models.Album.fetchAll();
+// Get all albums with from an authenticated user
+const getAllAlbumsFromUser = async (req, res) => {
+	const user = await User.fetchById(req.user.id, {
+		withRelated: ["albums"],
+	});
 	res.send({
 		status: "success",
-		data: { allAlbums },
+		data: {
+			albums: user.related("albums"),
+		},
 	});
 };
 
-// Get a specific album based on albumId with a GET request
-const show = async (req, res) => {
-	const album = await new models.Album({ id: req.params.albumId }).fetch({
-		withRelated: ["photos", "user"],
+// Get a specific album and it's photos from an authenticated user
+const getAlbumFromUser = async (req, res) => {
+	const user = await models.User.fetchById(req.user.id, {
+		withRelated: ["albums"],
 	});
+	const userAlbums = user.related("albums");
+	const requestedAlbum = userAlbums.find(
+		(album) => album.id == req.params.albumId
+	);
+
+	if (!requestedAlbum) {
+		return res.status(404).send({
+			status: "fail",
+			message: "Requested album could not be found.",
+		});
+	}
+
+	const albumId = await models.Album.fetchById(req.params.albumId, {
+		withRelated: ["photos"],
+	});
+
 	res.send({
 		status: "success",
-		data: { album },
+		data: { albumId },
 	});
 };
 
@@ -35,10 +55,11 @@ const store = async (req, res) => {
 	}
 
 	// get only the validated data from the request
-	// const validData = matchedData(req);
+	const validData = matchedData(req);
+	validData.user_id = req.user.id;
 
 	try {
-		const album = await new models.Album(req.body).save();
+		const album = await new models.Album(validData).save();
 		debug("Created new album successfully: %O", album);
 
 		res.send({
@@ -94,20 +115,7 @@ const update = async (req, res) => {
 		throw error;
 	}
 };
-
-/**
- * Destroy a specific resource
- *
- * DELETE /:exampleId
- */
-const destroy = (req, res) => {
-	res.status(400).send({
-		status: "fail",
-		message:
-			"You need to write the code for deleting this resource yourself.",
-	});
-};
-
+// Assign a photo to an album belonging to a authenticated user.
 const assignPhoto = async (req, res) => {
 	// check for any validation errors
 	const errors = validationResult(req);
@@ -117,7 +125,7 @@ const assignPhoto = async (req, res) => {
 	// get only the validated data from request
 	const validData = matchedData(req);
 	// fetch album and photos relation
-	const album = await models.Album.fetchById(req.params.albumId, {
+	const album = await models.Album.fetchById(validData, {
 		withRelated: ["photos"],
 	});
 	// get all photos of the related album
@@ -130,13 +138,13 @@ const assignPhoto = async (req, res) => {
 	if (existingPhoto) {
 		return res.send({
 			status: "fail",
-			data: "Photo already exists.",
+			data: "Photo already exists in this album.",
 		});
 	}
 
 	try {
 		const result = await album.photos().attach(validData.photo_id);
-		debug("Successfully added photo to album : %O", result);
+		debug("Successfully added photo to the album : %O", result);
 
 		res.send({
 			status: "success",
@@ -152,10 +160,9 @@ const assignPhoto = async (req, res) => {
 	}
 };
 module.exports = {
-	index,
-	show,
+	getAllAlbumsFromUser,
+	getAlbumFromUser,
 	store,
 	update,
-	destroy,
 	assignPhoto,
 };
