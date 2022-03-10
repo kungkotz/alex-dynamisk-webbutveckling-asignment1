@@ -11,7 +11,7 @@ const getAllAlbumsFromUser = async (req, res) => {
 	const user = await User.fetchById(req.user.id, {
 		withRelated: ["albums"],
 	});
-	res.send({
+	res.status(200).send({
 		status: "success",
 		data: {
 			albums: user.related("albums"),
@@ -40,7 +40,7 @@ const getAlbumFromUser = async (req, res) => {
 		withRelated: ["photos"],
 	});
 
-	res.send({
+	res.status(200).send({
 		status: "success",
 		data: { albumId },
 	});
@@ -62,7 +62,7 @@ const store = async (req, res) => {
 		const album = await new models.Album(validData).save();
 		debug("Created new album successfully: %O", album);
 
-		res.send({
+		res.status(200).send({
 			status: "success",
 			data: { album },
 		});
@@ -110,7 +110,7 @@ const update = async (req, res) => {
 	try {
 		const updatedAlbum = await album.save(validData);
 		debug("Updated album successfully: %O", updatedAlbum);
-		res.send({
+		res.status(200).send({
 			status: "success",
 			data: { album },
 		});
@@ -146,15 +146,15 @@ const assignPhoto = async (req, res) => {
 	const userPhoto = user
 		.related("photos")
 		.find((photo) => photo.id == validData.photo_id);
-	// check if album or photo exists, if not send 403 error.
+	// check if album or photo exists, if not send 404 error.
 	if (!userAlbum) {
-		res.status(403).send({
+		res.status(404).send({
 			status: "fail",
 			data: "Album could not be found",
 		});
 		return;
 	} else if (!userPhoto) {
-		res.status(403).send({
+		res.status(404).send({
 			status: "fail",
 			data: "Photo could not be found",
 		});
@@ -172,7 +172,8 @@ const assignPhoto = async (req, res) => {
 
 	// If photo already exists in the album, return fail, else try to attach
 	if (existingPhoto) {
-		return res.send({
+		return res.status(409).send({
+			// https://stackoverflow.com/questions/3825990/http-response-code-for-post-when-resource-already-exists
 			status: "fail",
 			data: "The photo already exists",
 		});
@@ -181,7 +182,7 @@ const assignPhoto = async (req, res) => {
 	try {
 		await album.photos().attach(validData.photo_id);
 
-		res.send({
+		res.status(200).send({
 			status: "success",
 			data: null,
 		});
