@@ -2,6 +2,7 @@
     "name": "fed21-nodejs-boilerplate",
     "version": "0.1.0",
     "private": true,
+    "main": "app.js",
     "scripts": {
         "start": "node ./bin/www",
         "dev": "cross-env DEBUG=books:* nodemon ./bin/www",
