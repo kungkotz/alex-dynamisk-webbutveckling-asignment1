@@ -7,6 +7,13 @@ const userValidationRules = require("../validation/user");
 router.use("/albums", auth.basic, require("./album"));
 router.use("/photos", auth.basic, require("./photo"));
 
+router.get("/", (req, res, next) => {
+	res.send({
+		success: true,
+		data: { msg: "Hi friend!" },
+	});
+});
+
 // Register a user
 router.post(
 	"/register",
