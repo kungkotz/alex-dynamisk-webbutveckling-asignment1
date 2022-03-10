@@ -11,21 +11,6 @@
 				{
 					"name": "POST Albums",
 					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "evilman1234",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "burns@burns.com",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -38,12 +23,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums"
 							]
@@ -57,12 +43,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums"
 							]
@@ -85,12 +72,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/photos",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"photos"
 							]
@@ -104,15 +92,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/photos/",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
-								"photos",
-								""
+								"photos"
 							]
 						}
 					},
@@ -133,12 +121,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/photos/5",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos/5",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"photos",
 								"5"
@@ -162,12 +151,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums"
 							]
@@ -190,12 +180,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums/1/photos",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/1/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums",
 								"1",
@@ -211,12 +202,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/albums/1",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/1",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums",
 								"1"
@@ -231,12 +223,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/albums/2",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/2",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums",
 								"2"
@@ -319,12 +312,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums"
 							]
@@ -347,12 +341,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/photos",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"photos"
 							]
@@ -366,15 +361,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/photos/",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
-								"photos",
-								""
+								"photos"
 							]
 						}
 					},
@@ -395,12 +390,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/photos/5",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos/5",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"photos",
 								"5"
@@ -424,12 +420,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums"
 							]
@@ -452,12 +449,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums/1/photos",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/albums/1/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums",
 								"1",
@@ -473,12 +471,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/albums/3",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/albums/3",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums",
 								"3"
@@ -542,14 +541,16 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/albums/",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
-								"albums"
+								"albums",
+								""
 							]
 						}
 					},
@@ -561,12 +562,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/albums",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums"
 							]
@@ -589,12 +591,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/photos",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"photos"
 							]
@@ -608,15 +611,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/photos/",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
-								"photos",
-								""
+								"photos"
 							]
 						}
 					},
@@ -637,12 +640,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/photos/5",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/photos/5",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"photos",
 								"5"
@@ -666,12 +670,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/albums",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums"
 							]
@@ -694,12 +699,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/albums/1/photos",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/albums/1/photos",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums",
 								"1",
@@ -715,12 +721,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/albums/4",
-							"protocol": "http",
+							"raw": "https://alexander-photo-api.herokuapp.com/albums/4",
+							"protocol": "https",
 							"host": [
-								"localhost"
+								"alexander-photo-api",
+								"herokuapp",
+								"com"
 							],
-							"port": "3000",
 							"path": [
 								"albums",
 								"4"
@@ -796,12 +803,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/register",
-					"protocol": "http",
+					"raw": "https://alexander-photo-api.herokuapp.com/register",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"alexander-photo-api",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"register"
 					]
@@ -839,12 +847,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/register",
-					"protocol": "http",
+					"raw": "https://alexander-photo-api.herokuapp.com/register",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"alexander-photo-api",
+						"herokuapp",
+						"com"
 					],
-					"port": "3000",
 					"path": [
 						"register"
 					]
