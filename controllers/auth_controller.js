@@ -26,7 +26,7 @@ const register = async (req, res) => {
 		// Even if we never use "user", we still have to save the valid data somewhere
 		const user = await new models.User(validData).save();
 
-		res.send({
+		res.status(200).send({
 			status: "success",
 			data: {
 				email: validData.email,
@@ -54,7 +54,7 @@ const login = async (req, res) => {
 	}
 
 	// response
-	return res.send({
+	return res.status(200).send({
 		status: "success",
 		data: {
 			user,

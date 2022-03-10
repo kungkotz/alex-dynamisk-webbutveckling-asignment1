@@ -16,7 +16,6 @@ module.exports = (bookshelf) => {
 		},
 		{
 			async login(email, password) {
-				// fetching the user by email
 				const user = await new this({ email }).fetch({
 					require: false,
 				});

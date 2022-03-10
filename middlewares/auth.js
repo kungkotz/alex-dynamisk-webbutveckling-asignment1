@@ -9,10 +9,10 @@ const basic = async (req, res, next) => {
 			data: "Authorization required",
 		});
 	}
-	// Split header into two  (authSchema) & (base64Payload)
+	// Split header into two variables, "authSchema" and "base64Payload"
 	const [authSchema, base64Payload] = req.headers.authorization.split(" ");
 
-	// If authSchema doesnt have value "basic...", then bail out.
+	// If authSchema is not basic, return a 401 error.
 	if (authSchema.toLowerCase() !== "basic") {
 		debug("Authorization schema isn't basic");
 
@@ -43,7 +43,7 @@ const basic = async (req, res, next) => {
 	// Assign user to the request.
 	req.user = user;
 
-	// Move along.
+	// Move on with whatever you did before authentication.
 	next();
 };
 
