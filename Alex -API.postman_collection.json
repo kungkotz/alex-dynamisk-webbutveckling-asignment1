@@ -1,0 +1,894 @@
+{
+	"info": {
+		"_postman_id": "2b872214-217c-4877-978e-8f4407914517",
+		"name": "Alex - API Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mr Burns",
+			"item": [
+				{
+					"name": "POST Albums",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Holiday 2022\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Albums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Photos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"evil.com\",\r\n    \"comment\": \"Last night\",\r\n    \"title\": \"Sunset\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Photos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Photo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"ENTER URL\",\r\n    \"comment\": \"ENTER COMMENT\",\r\n    \"title\": \"Updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos/5",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Album",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"INSERT TITLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD existing Photo to Album",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"photo_id\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/1/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums",
+								"1",
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET \"Places I hate\" Album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/1",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET \"Springfield\" Album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/2",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "username",
+						"value": "burns@burns.com",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "evilman1234",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Admiral-General Aladeen",
+			"item": [
+				{
+					"name": "POST Albums",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Taco-night\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Albums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Photos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"northgore.gov\",\r\n    \"comment\": \"Me and Kimmie hanging out at his place\",\r\n    \"title\": \"Pyongyang\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Photos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Photo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"\",\r\n    \"comment\": \"\",\r\n    \"title\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos/5",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Album",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD existing Photo to Album",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"photo_id\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/1/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums",
+								"1",
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET \"Nuked Locations\" Album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/3",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "nukeIsrael1234",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "thedictator@wadiya.gov",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Vladimir Putin",
+			"item": [
+				{
+					"name": "POST Albums",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "squattingslav99",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "vladimirputin@rus.gov",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Albums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Photos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"tanks.com\",\r\n    \"comment\": \"Army stuff\",\r\n    \"title\": \"Cool tanks\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Photos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Photo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"\",\r\n    \"comment\": \"\",\r\n    \"title\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/photos/5",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"photos",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Album",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD existing Photo to  Vladimirs AlbumAlbum",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"photo_id\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/1/photos",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums",
+								"1",
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET \"Cute Puppies\" Album",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://kungkotz-photos-app.herokuapp.com/albums/4",
+							"protocol": "https",
+							"host": [
+								"kungkotz-photos-app",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"albums",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "squattingslav99",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "vladimirputin@rus.gov",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Register with a taken email",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "vladimirputin@rus.gov",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "squattingslav99",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"vladimirputin@rus.gov\",\r\n    \"password\": \"squattingslav99\",\r\n    \"first_name\": \"Vladimir\",\r\n    \"last_name\": \"Putin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://kungkotz-photos-app.herokuapp.com/register",
+					"protocol": "https",
+					"host": [
+						"kungkotz-photos-app",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\",\r\n    \"first_name\": \"\",\r\n    \"last_name\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://kungkotz-photos-app.herokuapp.com/register",
+					"protocol": "https",
+					"host": [
+						"kungkotz-photos-app",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
